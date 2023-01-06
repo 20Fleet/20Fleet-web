@@ -1,6 +1,9 @@
 import { Fragment, useState } from "react";
 import { Outlet } from "react-router";
-import { Confirmation, FormType, InvestorType } from "../../components/multi-step-form";
+import {
+  InvestorType,
+  RegisterForm,
+} from "../../components/multi-step-form";
 import {
   FormButton,
   FormButtonContainer,
@@ -24,9 +27,7 @@ export const Register = () => {
       case 1:
         return <InvestorType />;
       case 2:
-        return <FormType />;
-      case 3:
-        return <Confirmation />
+        return <RegisterForm />;
       default:
         return <InvestorType />;
     }
@@ -39,7 +40,7 @@ export const Register = () => {
           <FormButtonContainer>
             {step > 1 && <FormButton onClick={prevStep}>Back</FormButton>}
             <FormButton onClick={nextStep}>
-              {step === 3 ? "Submit Registration" : "Save & Continue"}
+              {step === 2 ? "Submit Registration" : "Save & Continue"}
             </FormButton>
           </FormButtonContainer>
         </RegisterWrapper>

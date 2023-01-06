@@ -46,18 +46,18 @@ export const FormInputBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 
 export const TextInput = styled.input`
   width: 100%;
   height: 30px;
-  padding: 0 16px;
+  padding: 0 18px;
   border: 2px solid #e5e5e5;
   background: transparent;
   border-radius: 5px;
   color: #000000;
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.5;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
