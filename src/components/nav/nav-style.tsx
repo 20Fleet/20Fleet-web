@@ -11,7 +11,7 @@ export const NavContainer = styled.nav`
 `;
 
 export const NavLogo = styled(Link)`
-    text-decoration: none;
+  text-decoration: none;
   img {
     width: 100px;
   }
@@ -21,6 +21,8 @@ export const NavList = styled.ul`
   list-style: none;
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
 `;
 
 export const NavListItem = styled.li`
@@ -31,4 +33,5 @@ export const NavItemLink = styled.a`
   text-decoration: none;
   color: #000000;
   text-transform: capitalize;
+  font-size: 1.1rem;
 `;

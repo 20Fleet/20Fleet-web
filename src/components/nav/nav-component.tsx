@@ -15,7 +15,7 @@ export const NavComponent = () => {
       </NavLogo>
       <NavList>
         <NavListItem>
-          <NavItemLink href="/loogin">login</NavItemLink>
+          <NavItemLink href="/login">login</NavItemLink>
         </NavListItem>
         <NavListItem>
           <NavItemLink href="/register">signup</NavItemLink>
