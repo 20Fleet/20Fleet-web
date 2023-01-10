@@ -7,9 +7,16 @@ import {
   onAuthStateChanged,
   NextOrObserver,
   User,
+  UserCredential,
 } from "firebase/auth";
 import { getAnalytics } from "firebase/analytics";
-import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
+import {
+  doc,
+  getDoc,
+  getFirestore,
+  QueryDocumentSnapshot,
+  setDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAveFv3xxmlaSKbEShseixOij30X6BhJBE",
@@ -21,6 +28,17 @@ const firebaseConfig = {
   measurementId: "G-KTCNYVCMGX",
 };
 
+export interface UserData {
+  firstname: string;
+  surname: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  phone: string;
+  address: string;
+  investmentType: string | null;
+}
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -30,21 +48,20 @@ const auth = getAuth();
 export const db = getFirestore();
 
 export const createUserProfileDocument = async (
-  userAuth: { uid?: any; displayName?: string; email?: string },
+  userAuth: User,
   additionalData = {}
-) => {
+): Promise<QueryDocumentSnapshot<UserData> | void> => {
   if (!userAuth) return;
 
   const userRef = doc(db, "users", userAuth.uid);
-  const snapShot = await getDoc(userRef);
+  const userSnapShot = await getDoc(userRef);
 
-  if (!snapShot.exists()) {
-    const { displayName, email } = userAuth;
+  if (!userSnapShot.exists()) {
+    const { email } = userAuth;
     const createdAt = new Date();
 
     try {
       await setDoc(userRef, {
-        displayName,
         email,
         createdAt,
         ...additionalData,
@@ -54,26 +71,17 @@ export const createUserProfileDocument = async (
     }
   }
 
-  return userRef;
+  return userSnapShot as QueryDocumentSnapshot<UserData>;
 };
 
-export const createUserWithEmailAndPasswordHandler = async (
+export const createAuthUserWithEmailAndPassword = async (
   email: string,
   password: string
-) => {
-  if (email === "") {
-    return "Please enter your email";
-  }
+): Promise<UserCredential> => {
+  if (!email || !password) throw new Error("Missing email or password");
+  ;
 
-  if (password === "") {
-    return "Please enter your password";
-  }
-
-  try {
-    await createUserWithEmailAndPassword(auth, email, password);
-  } catch (error: any) {
-    return error.message;
-  }
+  return await createUserWithEmailAndPassword(auth, email, password);
 };
 
 export const signInWithEmailAndPasswordHandler = async (
@@ -83,7 +91,7 @@ export const signInWithEmailAndPasswordHandler = async (
   if (!email || !password) return;
 
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    return await signInWithEmailAndPassword(auth, email, password);
   } catch (error: any) {
     return error.message;
   }

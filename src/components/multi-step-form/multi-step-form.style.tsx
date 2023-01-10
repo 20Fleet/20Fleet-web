@@ -17,6 +17,11 @@ export const FormBox = styled.form`
   flex-direction: column;
   justify-content: center;
   width: 100%;
+
+  #address {
+    width: auto;
+    margin-left: 0;
+  }
 `;
 
 export const SelectInput = styled.select`
@@ -62,9 +67,4 @@ export const TextInput = styled.input`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   margin-right: 10px;
-
-  &:last-child {
-    margin-right: 0;
-    width: auto;
-  }
 `;

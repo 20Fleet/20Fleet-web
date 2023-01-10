@@ -18,7 +18,7 @@ export const RegisterWrapper = styled.div`
 
 export const FormButtonContainer = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 30px;
 `;
