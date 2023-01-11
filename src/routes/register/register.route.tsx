@@ -28,7 +28,6 @@ const defaultFormValues = {
   address: "",
   password: "",
   confirmPassword: "",
-  investmentType: localStorage.getItem("investorType"),
 };
 
 export const Register = () => {
