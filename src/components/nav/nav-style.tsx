@@ -12,6 +12,7 @@ export const NavContainer = styled.nav`
 
 export const NavLogo = styled(Link)`
   text-decoration: none;
+  
   img {
     width: 100px;
   }
