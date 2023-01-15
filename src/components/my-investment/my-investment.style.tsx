@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const MyInvestmentContainer = styled.div`
-    background: #fff;
-    padding: 20px;
+  background: #fff;
+  padding: 20px;
 `;
 
 export const MyInvesmentHeader = styled.div`
@@ -17,8 +17,9 @@ export const MyInvesmentHeaderText = styled.h3`
   font-size: 16px;
 `;
 
-export const MyInvesmentHeaderIcon = styled.button`
+export const MyInvesmentHeaderIcon = styled.span`
   color: #000;
+  cursor: pointer;
 `;
 
 export const MyInvesmentCardList = styled.div`

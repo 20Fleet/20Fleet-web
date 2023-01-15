@@ -3,6 +3,7 @@ import {
   InvestmentPoolCard,
   InvestmentPoolCardButton,
   InvestmentPoolCardList,
+  InvestmentPoolContainer,
   InvestmentPoolHeader,
   InvestmentPoolHeaderButton,
   InvestmentPoolHeaderText,
@@ -10,7 +11,7 @@ import {
 
 export const InvestmentPoolComponent = () => {
   return (
-    <InvestmentContainer>
+    <InvestmentPoolContainer>
       <InvestmentPoolHeader>
         <InvestmentPoolHeaderText>overview</InvestmentPoolHeaderText>
         <InvestmentPoolHeaderButton>view all</InvestmentPoolHeaderButton>
@@ -22,6 +23,6 @@ export const InvestmentPoolComponent = () => {
           </InvestmentPoolCard>
         ))}
       </InvestmentPoolCardList>
-    </InvestmentContainer>
+    </InvestmentPoolContainer>
   );
 };

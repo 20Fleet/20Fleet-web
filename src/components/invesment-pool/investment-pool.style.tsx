@@ -14,10 +14,7 @@ export const InvestmentPoolHeaderText = styled.h3`
   font-size: 16px;
 `;
 
-export const InvestmentPoolHeaderButton = styled.button`
-  background: none;
-  border: none;
-  outline: none;
+export const InvestmentPoolHeaderButton = styled.span`
   color: blue;
   cursor: pointer;
   text-transform: capitalize;
@@ -32,7 +29,7 @@ export const InvestmentPoolCardList = styled.div`
 export const InvestmentPoolCard = styled.div`
   width: 200px;
   height: 200px;
-  background: blue;
+  border: 2px solid gray;
   border-radius: 5px;
   padding: 10px;
 `;
